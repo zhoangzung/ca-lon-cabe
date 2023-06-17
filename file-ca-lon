@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fish Eating Game</title>
+    <style>
+        .fish-container {
+            width: 500px;
+            height: 500px;
+            position: relative;
+            border: 1px solid black;
+        }
+        .fish {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            background-image: url('fish.png');
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fish Eating Game</h1>
+
+    <div class="fish-container">
+        <?php
+        // Generate random fish
+        $numFish = 10;
+        for ($i = 1; $i <= $numFish; $i++) {
+            $size = rand(20, 50);
+            $top = rand(0, 450);
+            $left = rand(0, 450);
+            echo "<div class='fish' style='width: {$size}px; height: {$size}px; top: {$top}px; left: {$left}px;'></div>";
+        }
+        ?>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // When a fish is clicked, remove it
+        $('.fish').click(function() {
+            $(this).remove();
+        });
+    </script>
+</body>
+</html>
